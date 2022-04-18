@@ -32,7 +32,6 @@ public class StartScreen implements Screen {
         this.font = new BitmapFont();
         this.font.getData().setScale(3);
         this.timer = 0;
-
     }
 
     @Override

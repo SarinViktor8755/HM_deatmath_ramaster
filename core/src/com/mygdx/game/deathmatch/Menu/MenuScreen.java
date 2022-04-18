@@ -38,31 +38,29 @@ public class MenuScreen implements Screen {
     Skin skinMenu;
     Vector2 nap;
 
-    ShaderFilm shaderFilm;
-    ShaderProgram shader;
+
+  //  ShaderProgram shader;
 
     boolean long_logo;
     AudioEngineMenumain audioEngineMenumain;
 
     float noise_delta = 0;
 
-    public MenuScreen() {
-    }
 
     public MenuScreen(ZombiKiller zombiKiller) {
 
 
 
-        shaderFilm = new ShaderFilm();
-        shaderFilm.getShader().pedantic = false;
-        shader = new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(), shaderFilm.getShader().getFragmentShaderSource());
-        if (!shader.isCompiled()) {
-            System.err.println(shader.getLog());
-            System.exit(0);
-        }
+//        shaderFilm = new ShaderFilm();
+//        shaderFilm.getShader().pedantic = false;
+//        shader = new ShaderProgram(shaderFilm.getShader().getVertexShaderSource(), shaderFilm.getShader().getFragmentShaderSource());
+//        if (!shader.isCompiled()) {
+//            System.err.println(shader.getLog());
+//            System.exit(0);
+//        }
         batch = new SpriteBatch();
         //batch.setShader(shader);
-        shaderFilm = new ShaderFilm();
+
 
 
         this.zombiKiller = zombiKiller;
@@ -122,8 +120,7 @@ public class MenuScreen implements Screen {
 
     private void upDateScreen(float delta) {
 
-        shaderFilm.start(delta);
-        shaderFilm.setGrayScaleExtraAmount(delta);
+
         // System.out.println(shaderFilm.getTimer() + " !!!" );
 
         if (long_logo) {

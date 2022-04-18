@@ -40,7 +40,6 @@ public class ZombiKiller extends Game {
     }
 
 
-
     public ZombiKiller(int tip) {
         this.tip = (byte) tip;
         adMod = new AdAds() {
@@ -65,6 +64,7 @@ public class ZombiKiller extends Game {
         this.startScreen = new StartScreen(this);
         this.assetsManagerGame = new AssetManager();
         AssetsManagerGame.loadAssetForMenu(assetsManagerGame);
+
         getMenu();
         //getMainGaming();
 
@@ -113,8 +113,6 @@ public class ZombiKiller extends Game {
     }
 
     public void getMenu(){
-
-
         this.menuScreen = new MenuScreen(this);
         this.setScreen(this.menuScreen);
     }
