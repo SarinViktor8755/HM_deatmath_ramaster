@@ -77,14 +77,18 @@ public class MainGaming implements Screen {
 
 
     public MainGaming(ZombiKiller zk) {
+        System.out.println("MainGaming !!!!!!!!!!!!!");
         this.zk = zk;
         mainClient = new MainClient(this);
+
+        //mainClient.coonectToServer();
         mainClient.coonectToServer();
-      //  mainClient.coonectToServerNewThred();
     }
 
     @Override
     public void show() {
+        System.out.println("show MainGaming");
+        System.out.println();
         rot = new Vector2();
         this.startScreen = new StartScreen(zk);
 

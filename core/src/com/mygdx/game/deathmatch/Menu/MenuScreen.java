@@ -47,7 +47,7 @@ public class MenuScreen implements Screen {
     float noise_delta = 0;
 
 
-    public MenuScreen(ZombiKiller zombiKiller) {
+    public MenuScreen(final ZombiKiller zombiKiller) {
 
 
 
@@ -59,7 +59,6 @@ public class MenuScreen implements Screen {
 //            System.exit(0);
 //        }
         batch = new SpriteBatch();
-        //batch.setShader(shader);
 
 
 
@@ -104,6 +103,11 @@ public class MenuScreen implements Screen {
                 if (timerStartGame < 0) {
                     NikName.setNikName(textField.getText());
                     timerStartGame = 0;
+                    ///отжатая кнопка
+                    zombiKiller.getMainGamingNewThred();
+
+                   // System.out.println(timerStartGame);
+
                 }
                 return true;
             }
@@ -152,7 +156,12 @@ public class MenuScreen implements Screen {
             textButton.setColor(1, 1, 1, alphaScreen);
             textField.setColor(1, 1, 1, alphaScreen);
             //logo.set
-            if (timerStartGame > 2) startGameScreen();
+            if (timerStartGame > 2)
+            {
+                ///переключенеи экрана на игру
+                zombiKiller.setScreenToGame();
+                //startGameScreen();
+            }
         }
 
 
@@ -164,6 +173,10 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
+    }
+
+    private void create(){
+        zombiKiller.getMainGaming(true);
     }
 
     @Override

@@ -81,6 +81,15 @@ public class ZombiKiller extends Game {
     }
 
 
+    public void setScreenToGame(){
+        if(mGaming != null) {
+            this.setScreen(mGaming);
+        }else {
+            this.mGaming = new MainGaming(this);
+            this.setScreen(mGaming);
+        }
+    };
+
     public MainGaming getmGaming() {
         return mGaming;
     }
@@ -118,10 +127,29 @@ public class ZombiKiller extends Game {
     }
 
     public void getMainGaming() {
-        if (this.pauseScreen != null) this.pauseScreen.dispose();
         this.mGaming = new MainGaming(this);
         this.setScreen(this.mGaming);
+
     }
+
+
+    public void getMainGamingNewThred() {
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                getMainGaming(true);
+            }
+        });
+        t.start();
+    }
+
+    public void getMainGaming(boolean setGame) {
+        System.out.println("create New Game1");
+        if (this.pauseScreen != null) this.pauseScreen.dispose();
+        System.out.println("create New Game2");
+        this.mGaming = new MainGaming(this);
+        System.out.println("create New Game3");
+    }
+
 
     public static String getMyNikName() {
         return myNikName;
