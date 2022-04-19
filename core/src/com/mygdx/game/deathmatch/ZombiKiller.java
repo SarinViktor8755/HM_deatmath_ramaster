@@ -103,8 +103,9 @@ public class ZombiKiller extends Game {
 
     public void getPauseScreen(int PauseTime) {
         mGaming.getMainClient().client.stop();
+        mGaming.getAudioEngine().musicGame.stopMusic();
         boolean ad = true;
-        if (mGaming.getTimeInGame() < 40) ad = false;
+        if (mGaming.getTimeInGame() < 15) ad = false;
         this.pauseScreen = new PauseScreen(this, PauseTime, ad);
         this.setScreen(this.pauseScreen);
     }

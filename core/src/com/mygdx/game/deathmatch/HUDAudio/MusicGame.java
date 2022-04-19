@@ -22,6 +22,10 @@ public class MusicGame {
         this.music.setVolume(0);
     }
 
+    public void setVolme(float vol){
+        this.music.setVolume(vol);
+    }
+
     public void musicStopPley(){
         this.music.stop();
     }
