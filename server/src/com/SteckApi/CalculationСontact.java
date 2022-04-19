@@ -51,7 +51,7 @@ public class CalculationСontact { // класс для расчета поап�
             position.set(gameServer.getSnapShots().getPlaeyrToId(pl.getKey()).getX(), gameServer.getSnapShots().getPlaeyrToId(pl.getKey()).getY());
             if (StaticService.getDistance(position.x, position.y, x, y) < radius) { // замер расстояния
                 gameServer.indexMatch.addFragDromPlayer(nomPlayer);
-                gameServer.getSnapShots().getStockBase().messagePlayerDestruction(pl.getKey(),angel,weapon); // тут уже кто-то умер
+                gameServer.getSnapShots().getStockBase().messagePlayerDestruction(pl.getKey(),angel,weapon,nomPlayer); // тут уже кто-то умер
                 p.setLive(false);
                 gameServer.getCalculationСontact().checkFragsWeapon(nomPlayer, pl.getKey());
                 return pl.getKey();

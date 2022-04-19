@@ -179,8 +179,9 @@ public class StockRequestService {
         }
 
         if (tip == Key_cod.PLAYERS_DEATH) { // кого то убили
-            //System.out.println(entry.getValue());
-            System.out.println(entry.getValue());
+//            System.out.println(entry.getValue().p3); // туту кто убили !!!
+//            System.out.println(mg.getHero().getOtherPlayers().getNikName(entry.getValue().p3).getNikName());
+
             int x = mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley);
             int y = mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley);
 

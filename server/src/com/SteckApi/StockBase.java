@@ -138,13 +138,14 @@ public class StockBase {
         this.messageRatingKillTime(nomP);
     }
 
-    public void messagePlayerDestruction(int nomP,int angel,int weapon) {    // --- сообщение уничтичтожение игрока - ОГНЕСТРЕЛОМ
+    public void messagePlayerDestruction(int nomP,int angel,int weapon, int nomPlayer) {    // --- сообщение уничтичтожение игрока - ОГНЕСТРЕЛОМ
         ArrayList<Integer> plroom = gameServer.getListPlayer();
         Network.StockMess stockMess = new Network.StockMess();
         stockMess.time_even = TimeService.getTimeGame() * (-1);
         stockMess.tip = -2;
         stockMess.p1 = angel;
         stockMess.p2 = weapon;
+        stockMess.p3 = nomPlayer; // Кто убил
         stockMess.nomer_pley = nomP;
         for (int i = 0; i < plroom.size(); i++) {
             getOutMess().addStockOutQuery(new RequestStockServer(stockMess, plroom.get(i)));

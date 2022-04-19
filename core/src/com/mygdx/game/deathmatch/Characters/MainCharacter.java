@@ -156,7 +156,7 @@ public class MainCharacter extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-        System.out.println(NikName.getTokken() + "   --");
+      //  System.out.println(NikName.getTokken() + "   --");
         //System.out.println(getMyColorAndGenerate());
         //System.out.println(position.x+" :: "+ position.y);
         globalAlpha = MathUtils.sinDeg(mg.getHud().getTimer() / 20);
