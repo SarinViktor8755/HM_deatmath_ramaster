@@ -180,6 +180,7 @@ public class StockRequestService {
 
         if (tip == Key_cod.PLAYERS_DEATH) { // кого то убили
             //System.out.println(entry.getValue());
+            System.out.println(entry.getValue());
             int x = mg.getHero().getOtherPlayers().getXplayToId(entry.getValue().nomer_pley);
             int y = mg.getHero().getOtherPlayers().getYplayToId(entry.getValue().nomer_pley);
 

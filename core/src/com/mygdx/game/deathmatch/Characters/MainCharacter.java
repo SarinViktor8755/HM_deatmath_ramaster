@@ -17,6 +17,7 @@ import com.mygdx.game.deathmatch.ClientNetWork.SteckApi.RequestStock;
 import com.mygdx.game.deathmatch.HUDAudio.HelperScreen;
 import com.mygdx.game.deathmatch.Lighting.B2lights;
 import com.mygdx.game.deathmatch.MainGaming;
+import com.mygdx.game.deathmatch.Particles.ParticleCustum;
 import com.mygdx.game.deathmatch.Service.Key_cod;
 import com.mygdx.game.deathmatch.Service.NikName;
 import com.mygdx.game.deathmatch.Service.OperationVector;
@@ -33,6 +34,7 @@ public class MainCharacter extends Actor {
 
     AnimationPers animationPers;
 
+    private ParticleCustum particleCustum;
     private Vector2 cookAngle; // навправление тела
     private Vector2 acceleration; // навправление движения
     private Vector2 position; // позиция
@@ -119,6 +121,8 @@ public class MainCharacter extends Actor {
         textFont.setColor(Color.WHITE);
         textFont.setUseIntegerPositions(true);
 
+        particleCustum = new ParticleCustum();
+
     }
 
     private void createDk() {
@@ -152,7 +156,7 @@ public class MainCharacter extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
-
+        System.out.println(NikName.getTokken() + "   --");
         //System.out.println(getMyColorAndGenerate());
         //System.out.println(position.x+" :: "+ position.y);
         globalAlpha = MathUtils.sinDeg(mg.getHud().getTimer() / 20);
@@ -200,7 +204,10 @@ public class MainCharacter extends Actor {
 
             otherPlayers.getPlayerToID(mg.getMainClient().getMyIdConnect()).updateCoordinatPleyer((int) position.x, (int) position.y, (int) cookAngle.angle());
             renderPlayers(animationPers);
+            particleCustum.render(mg.getBatch(),Gdx.graphics.getDeltaTime());
 
+
+          //  if(MathUtils.randomBoolean(.005f)){particleCustum.}
             //mg.getIndexMap().renderFakePerspektiveLaier();
             // mg.getAssetsManagerGame().getProgress();
             // Gdx.app.log("Asset  ", String.valueOf(mg.getAssetsManagerGame().getProgress()));
